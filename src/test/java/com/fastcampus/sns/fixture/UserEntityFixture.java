@@ -1,5 +1,6 @@
 package com.fastcampus.sns.fixture;
 
+import com.fastcampus.sns.model.UserRole;
 import com.fastcampus.sns.model.entity.UserEntity;
 
 import java.sql.Timestamp;

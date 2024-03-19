@@ -1,0 +1,19 @@
+# ?? ?? ??? properties?? ?? ????? ?.
+spring.jpa:
+  database: postgresql
+#  sql? ??? ??? ??? ??.
+  hibernate.dialect: org.hibernate.dilect.PostgreSQLDialect
+#  ddl? ?? ????.
+#  ?? ??????? ?? ???.
+  hibernate.ddl-auto: update
+  properties.hibernate.format_sql: true
+  show-sql: true
+
+spring.datasource:
+  hikari.maximum-pool-size: 4
+#  ? ?? 3??? heroku?? ??
+  url: jdbc:postgresql://cb889jp6h2eccm.cluster-czrs8kj4isg7.us-east-1.rds.amazonaws.com/d7sshqmvr4snf
+  username: ufnq8v6sf48th4
+  password: p0f51ce2a3581ee93fd150fe8bcc074251a1657a8b188c2485a172449500c4da8
+  platform: postgres
+  driver-class-name: org.postgresql.Driver
