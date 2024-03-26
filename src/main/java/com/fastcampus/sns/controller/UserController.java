@@ -1,8 +1,10 @@
 package com.fastcampus.sns.controller;
 
 import com.fastcampus.sns.controller.reqeust.UserJoinRequest;
+import com.fastcampus.sns.controller.reqeust.UserLoginRequest;
 import com.fastcampus.sns.controller.response.Response;
 import com.fastcampus.sns.controller.response.UserJoinResponse;
+import com.fastcampus.sns.controller.response.UserLoginResponse;
 import com.fastcampus.sns.model.User;
 import com.fastcampus.sns.service.UserService;
 import lombok.RequiredArgsConstructor;
@@ -27,5 +29,11 @@ public class UserController {
 
         // 오 대박...이렇게 response 이용하는구나.
         return Response.success(UserJoinResponse.fromUser(user));
+    }
+
+    @PostMapping("/login")
+    public Response<UserLoginResponse> login(@RequestBody UserLoginRequest request){
+        String token = userService.login(request.getUserName(), request.getPassword());
+        return Response.success(new UserLoginResponse(token));
     }
 }

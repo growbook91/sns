@@ -13,6 +13,11 @@ public class SnsApplicationException extends RuntimeException{// 이 extends 클
     private ErrorCode errorCode;
     private String message;
 
+    public SnsApplicationException(ErrorCode errorCode) {
+        this.errorCode = errorCode;
+        this.message = null;
+    }
+
     @Override
     public String getMessage() {
         if (message == null){

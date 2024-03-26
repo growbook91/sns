@@ -3,8 +3,8 @@ spring.jpa:
   database: postgresql
 #  sql? ??? ??? ??? ??.
   hibernate.dialect: org.hibernate.dilect.PostgreSQLDialect
-#  ddl? ?? ????.
-#  ?? ??????? ?? ???.
+#  ddl을 자동으로..?.
+#  do not user this option at production.
   hibernate.ddl-auto: update
   properties.hibernate.format_sql: true
   show-sql: true
@@ -17,3 +17,8 @@ spring.datasource:
   password: p0f51ce2a3581ee93fd150fe8bcc074251a1657a8b188c2485a172449500c4da8
   platform: postgres
   driver-class-name: org.postgresql.Driver
+
+jwt:
+  secret-key: fast_campus.sns-application-2022.secret_key
+  # 30 days
+  token.expired-time-ms: 2592000000
