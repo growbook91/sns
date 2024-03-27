@@ -11,6 +11,21 @@ import java.util.Date;
 
 public class JwtTokenUtils {
 
+    public static String getUserName(String token, String key){
+        return extractClaims(token, key).get("userName", String.class);
+    }
+
+    // token이 expired되는지
+    public static boolean isExpired(String token, String key){
+        Date expredDate = extractClaims(token, key).getExpiration();
+        return expredDate.before(new Date());
+    }
+
+    private static Claims extractClaims(String token, String key){
+        return Jwts.parserBuilder().setSigningKey(getKey(key))
+                .build().parseClaimsJws(token).getBody();
+    }
+
     public static String generateToken(String userName, String key, long expiredTimeMs) {
         // password를 넣어도 되지만 username만 넣어서 token을 만들 것이다.
         // Jwt 관련 library를 build.gradle에 추가해야 함.

@@ -30,6 +30,10 @@ public class UserService {
     @Value("${jwt.token.expired-time-ms}")
     private Long expiredTimeMs;
 
+    public User loadUserByUserName(String userName){
+        return userEntityRepository.findByUserName(userName).map(User::fromEntity).orElseThrow(() ->
+                new SnsApplicationException(ErrorCode.USER_NOT_FOUND, String.format("%s not found", userName)));
+    }
     // 이 transactional을 통해 join이 실패할 경우에는 정보가 저장되지 않도록 한다.
     @Transactional
     public User join(String userName, String password) {

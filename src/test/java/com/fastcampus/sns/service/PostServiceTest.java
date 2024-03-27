@@ -44,7 +44,7 @@ public class PostServiceTest {
     }
 
     @Test
-    void 포스트작성_요청한유가_존재하지않는경우(){
+    void 포스트작성_요청한유저가_존재하지않는경우(){
         String title = "title";
         String body = "body";
         String userName = "userName";
